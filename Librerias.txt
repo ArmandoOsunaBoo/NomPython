@@ -1,0 +1,9 @@
+python -m pip install pillow
+python -m pip install mysql-connector-python
+pip install openpyxl
+pip install tkcalendar
+pip install pyexcel pyexcel-xls pyexcel-xlsx
+#Librerias para cambiar archivos xls a xlsx de excel
+pip install pyexcel pyexcel-xls pyexcel-xlsx
+pip install GitPython
+

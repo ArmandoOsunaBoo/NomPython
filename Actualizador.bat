@@ -1,0 +1,1 @@
+wscript.exe "invisible.vbs" "git_pull.bat"

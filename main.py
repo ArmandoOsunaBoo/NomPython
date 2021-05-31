@@ -7,7 +7,7 @@ import webbrowser
 from sys import exit
 import datetime
 root=""
-git_upd="5"
+git_upd="6"
 import git
 from git import *
 

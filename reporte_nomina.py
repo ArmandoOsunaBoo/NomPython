@@ -19,12 +19,12 @@ class ReporteNomina:
 
 
         #tenemos que leer datos del empleado del archivo
-        lunes= self.formato_fecha(sheet.cell(row=5, column=130).value)
-        martes= self.formato_fecha(sheet.cell(row=5, column=131).value)
-        miercoles= self.formato_fecha(sheet.cell(row=5, column=132).value)
-        jueves= self.formato_fecha(sheet.cell(row=5, column=133).value)
-        viernes= self.formato_fecha(sheet.cell(row=5, column=134).value)
-        sabados= self.formato_fecha(sheet.cell(row=5, column=135).value)
+        lunes= self.formato_fecha(sheet.cell(row=5, column=132).value)
+        martes= self.formato_fecha(sheet.cell(row=5, column=133).value)
+        miercoles= self.formato_fecha(sheet.cell(row=5, column=134).value)
+        jueves= self.formato_fecha(sheet.cell(row=5, column=135).value)
+        viernes= self.formato_fecha(sheet.cell(row=5, column=136).value)
+        sabados= self.formato_fecha(sheet.cell(row=5, column=137).value)
 
         #El primer empleado empieza en la fila 6
         fila = 5

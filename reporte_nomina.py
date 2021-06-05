@@ -49,7 +49,7 @@ class ReporteNomina:
                 porcentaje_ju=int(round(float(sheet_faltas.cell(row=x, column=8).value)*100))
                 porcentaje_vi=int(round(float(sheet_faltas.cell(row=x, column=9).value)*100))
                 porcentaje_sab=int(round(float(sheet_faltas.cell(row=x, column=10).value)*100))
-                print("Clave Trabajador: "+str(clave_trabajador))
+                ''' print("Clave Trabajador: "+str(clave_trabajador))
                 print(porcentaje_l)
                 print(porcentaje_ma)
                 print(porcentaje_mi)
@@ -64,7 +64,7 @@ class ReporteNomina:
                 print(viernes)
                 print(sabados)
                 print("---------------------------")
-
+                '''
 
 
 
@@ -135,217 +135,217 @@ class ReporteNomina:
                     sheet_faltas_creado_sheet.cell(row=contador_fila_faltas_creado, column=7).value = sabados
 
         nrow = sheet_movimientos.max_row
-        print(nrow)
+        print("TOTAL DE REGISTROS: "+str(nrow))
         contador_mov_creado=1
-        for x in range(4, nrow):
+        for x in range(4, nrow+1):
             pass
             clave_trabajador = str(sheet_movimientos.cell(row=x, column=1).value)
             if clave_trabajador !="0":
                 print("Clave:    "+str(clave_trabajador))
                 #SUELDO P001
                 print("Valores 5:"+str(sheet_movimientos.cell(row=x, column=5).value)+"||")
-                if str(sheet_movimientos.cell(row=x, column=5).value) != "0":
-                    pass
-                    contador_mov_creado=contador_mov_creado+1
-                    self.impresion_de_movimientos(contador_mov_creado, workbook_incidencias_creado_sheet,
+                #if str(sheet_movimientos.cell(row=x, column=5).value) != "0":
+                #    pass
+                contador_mov_creado=contador_mov_creado+1
+                self.impresion_de_movimientos(contador_mov_creado, workbook_incidencias_creado_sheet,
                                                   clave_trabajador, "P","1", sabados,
                                                   sheet_movimientos.cell(row=x, column=5).value)
 
                 # SEPTIMO DÍA P109
-                print("Valores 6:" + str(sheet_movimientos.cell(row=x, column=6).value) + "||")
-                if str(sheet_movimientos.cell(row=x, column=6).value) != "0":
-                    pass
-                    contador_mov_creado = contador_mov_creado + 1
-                    self.impresion_de_movimientos( contador_mov_creado, workbook_incidencias_creado_sheet,
+                # print("Valores 6:" + str(sheet_movimientos.cell(row=x, column=6).value) + "||")
+                # if str(sheet_movimientos.cell(row=x, column=6).value) != "0":
+                pass
+                contador_mov_creado = contador_mov_creado + 1
+                self.impresion_de_movimientos( contador_mov_creado, workbook_incidencias_creado_sheet,
                                                   clave_trabajador, "P", "109", sabados,
                                                   sheet_movimientos.cell(row=x, column=6).value)
 
                 #MONTO HORAS DOBLES P003
-                print("Valores 7:" + str(sheet_movimientos.cell(row=x, column=7).value) + "||")
-                if str(sheet_movimientos.cell(row=x, column=7).value) != "0":
-                    pass
-                    contador_mov_creado = contador_mov_creado + 1
-                    self.impresion_de_movimientos( contador_mov_creado, workbook_incidencias_creado_sheet,
+                # print("Valores 7:" + str(sheet_movimientos.cell(row=x, column=7).value) + "||")
+                # if str(sheet_movimientos.cell(row=x, column=7).value) != "0":
+                pass
+                contador_mov_creado = contador_mov_creado + 1
+                self.impresion_de_movimientos( contador_mov_creado, workbook_incidencias_creado_sheet,
                                                   clave_trabajador, "P", "3", sabados,
                                                   sheet_movimientos.cell(row=x, column=7).value)
 
                 #MONTO HORAS TRIPLES P005
-                print("Valores 8:" + str(sheet_movimientos.cell(row=x, column=8).value) + "||")
-                if str(sheet_movimientos.cell(row=x, column=8).value) != "0":
-                    pass
-                    contador_mov_creado = contador_mov_creado + 1
-                    self.impresion_de_movimientos( contador_mov_creado, workbook_incidencias_creado_sheet,
+                # print("Valores 8:" + str(sheet_movimientos.cell(row=x, column=8).value) + "||")
+                # if str(sheet_movimientos.cell(row=x, column=8).value) != "0":
+                pass
+                contador_mov_creado = contador_mov_creado + 1
+                self.impresion_de_movimientos( contador_mov_creado, workbook_incidencias_creado_sheet,
                                                   clave_trabajador, "P", "5", sabados,
                                                   sheet_movimientos.cell(row=x, column=8).value)
 
                 #VACACIONES P009
-                print("Valores 9:" + str(sheet_movimientos.cell(row=x, column=9).value) + "||")
-                if str(sheet_movimientos.cell(row=x, column=9).value) != "0":
-                    pass
-                    contador_mov_creado = contador_mov_creado + 1
-                    self.impresion_de_movimientos( contador_mov_creado, workbook_incidencias_creado_sheet,
+                # print("Valores 9:" + str(sheet_movimientos.cell(row=x, column=9).value) + "||")
+                # if str(sheet_movimientos.cell(row=x, column=9).value) != "0":
+                pass
+                contador_mov_creado = contador_mov_creado + 1
+                self.impresion_de_movimientos( contador_mov_creado, workbook_incidencias_creado_sheet,
                                                   clave_trabajador, "P", "9", sabados,
                                                   sheet_movimientos.cell(row=x, column=9).value)
 
                 #PRIMA VACACIONAL P010
-                print("Valores 10:" + str(sheet_movimientos.cell(row=x, column=10).value) + "||")
-                if str(sheet_movimientos.cell(row=x, column=10).value) != "0":
-                    pass
-                    contador_mov_creado = contador_mov_creado + 1
-                    self.impresion_de_movimientos( contador_mov_creado, workbook_incidencias_creado_sheet,
+                # print("Valores 10:" + str(sheet_movimientos.cell(row=x, column=10).value) + "||")
+                # if str(sheet_movimientos.cell(row=x, column=10).value) != "0":
+                pass
+                contador_mov_creado = contador_mov_creado + 1
+                self.impresion_de_movimientos( contador_mov_creado, workbook_incidencias_creado_sheet,
                                                   clave_trabajador, "P", "10", sabados,
                                                   sheet_movimientos.cell(row=x, column=10).value)
 
                 #DESCANSO LABORADO P118
-                print("Valores 11:" + str(sheet_movimientos.cell(row=x, column=11).value) + "||")
-                if str(sheet_movimientos.cell(row=x, column=11).value) != "0":
-                    pass
-                    contador_mov_creado = contador_mov_creado + 1
-                    self.impresion_de_movimientos( contador_mov_creado, workbook_incidencias_creado_sheet,
+                # print("Valores 11:" + str(sheet_movimientos.cell(row=x, column=11).value) + "||")
+                # if str(sheet_movimientos.cell(row=x, column=11).value) != "0":
+                pass
+                contador_mov_creado = contador_mov_creado + 1
+                self.impresion_de_movimientos( contador_mov_creado, workbook_incidencias_creado_sheet,
                                                   clave_trabajador, "P", "118", sabados,
                                                   sheet_movimientos.cell(row=x, column=11).value)
 
                 #PRIMA DOMINICAL P019
-                print("Valores 12:" + str(sheet_movimientos.cell(row=x, column=12).value) + "||")
-                if str(sheet_movimientos.cell(row=x, column=12).value) != "0":
-                    pass
-                    contador_mov_creado = contador_mov_creado + 1
-                    self.impresion_de_movimientos( contador_mov_creado, workbook_incidencias_creado_sheet,
+                # print("Valores 12:" + str(sheet_movimientos.cell(row=x, column=12).value) + "||")
+                # if str(sheet_movimientos.cell(row=x, column=12).value) != "0":
+                pass
+                contador_mov_creado = contador_mov_creado + 1
+                self.impresion_de_movimientos( contador_mov_creado, workbook_incidencias_creado_sheet,
                                                   clave_trabajador, "P", "19", sabados,
                                                   sheet_movimientos.cell(row=x, column=12).value)
 
                 #BONO POR CAPACITACION P113
-                print("Valores 13:" + str(sheet_movimientos.cell(row=x, column=13).value) + "||")
-                if str(sheet_movimientos.cell(row=x, column=13).value) != "0":
-                    pass
-                    contador_mov_creado = contador_mov_creado + 1
-                    self.impresion_de_movimientos( contador_mov_creado, workbook_incidencias_creado_sheet,
+                # print("Valores 13:" + str(sheet_movimientos.cell(row=x, column=13).value) + "||")
+                # if str(sheet_movimientos.cell(row=x, column=13).value) != "0":
+                pass
+                contador_mov_creado = contador_mov_creado + 1
+                self.impresion_de_movimientos( contador_mov_creado, workbook_incidencias_creado_sheet,
                                                   clave_trabajador, "P", "113", sabados,
                                                   sheet_movimientos.cell(row=x, column=13).value)
 
                 # BONO ÁREA ESPECIAL P121
-                print("Valores 14:" + str(sheet_movimientos.cell(row=x, column=14).value) + "||")
-                if str(sheet_movimientos.cell(row=x, column=14).value) != "0":
-                    pass
-                    contador_mov_creado = contador_mov_creado + 1
-                    self.impresion_de_movimientos( contador_mov_creado, workbook_incidencias_creado_sheet,
+                # print("Valores 14:" + str(sheet_movimientos.cell(row=x, column=14).value) + "||")
+                # if str(sheet_movimientos.cell(row=x, column=14).value) != "0":
+                pass
+                contador_mov_creado = contador_mov_creado + 1
+                self.impresion_de_movimientos( contador_mov_creado, workbook_incidencias_creado_sheet,
                                                   clave_trabajador, "P", "121", sabados,
                                                   sheet_movimientos.cell(row=x, column=14).value)
                 #BONO LIDER DE GRUPO P129
-                print("Valores 15: " + str(sheet_movimientos.cell(row=x, column=15).value) + "||")
-                if str(sheet_movimientos.cell(row=x, column=15).value) != "0":
-                    pass
-                    contador_mov_creado = contador_mov_creado + 1
-                    self.impresion_de_movimientos( contador_mov_creado, workbook_incidencias_creado_sheet,
+                # print("Valores 15: " + str(sheet_movimientos.cell(row=x, column=15).value) + "||")
+                # if str(sheet_movimientos.cell(row=x, column=15).value) != "0":
+                pass
+                contador_mov_creado = contador_mov_creado + 1
+                self.impresion_de_movimientos( contador_mov_creado, workbook_incidencias_creado_sheet,
                                                   clave_trabajador, "P", "129", sabados,
                                                   sheet_movimientos.cell(row=x, column=15).value)
 
                 #BONO POR RENDIMIENTO P132
-                print("Valores: 16 " + str(sheet_movimientos.cell(row=x, column=16).value) + "||")
-                if str(sheet_movimientos.cell(row=x, column=16).value) != "0":
-                    pass
-                    contador_mov_creado = contador_mov_creado + 1
-                    self.impresion_de_movimientos( contador_mov_creado, workbook_incidencias_creado_sheet,
+                # print("Valores: 16 " + str(sheet_movimientos.cell(row=x, column=16).value) + "||")
+                # if str(sheet_movimientos.cell(row=x, column=16).value) != "0":
+                pass
+                contador_mov_creado = contador_mov_creado + 1
+                self.impresion_de_movimientos( contador_mov_creado, workbook_incidencias_creado_sheet,
                                                   clave_trabajador, "P", "132", sabados,
                                                   sheet_movimientos.cell(row=x, column=16).value)
 
                 #PREMIOS DE EFICIENCIA P126
-                print("Valores 17:" + str(sheet_movimientos.cell(row=x, column=17).value) + "||")
-                if str(sheet_movimientos.cell(row=x, column=17).value) != "0":
-                    pass
-                    contador_mov_creado = contador_mov_creado + 1
-                    self.impresion_de_movimientos( contador_mov_creado, workbook_incidencias_creado_sheet,
+                # print("Valores 17:" + str(sheet_movimientos.cell(row=x, column=17).value) + "||")
+                # if str(sheet_movimientos.cell(row=x, column=17).value) != "0":
+                pass
+                contador_mov_creado = contador_mov_creado + 1
+                self.impresion_de_movimientos( contador_mov_creado, workbook_incidencias_creado_sheet,
                                                   clave_trabajador, "P", "126", sabados,
                                                   sheet_movimientos.cell(row=x, column=17).value)
 
                 #PREMIOS DE PUNTUALIDAD P111
-                print("Valores: 18" + str(sheet_movimientos.cell(row=x, column=18).value) + "||")
-                if str(sheet_movimientos.cell(row=x, column=18).value) != "0":
-                    pass
-                    contador_mov_creado = contador_mov_creado + 1
-                    self.impresion_de_movimientos( contador_mov_creado, workbook_incidencias_creado_sheet,
+                # print("Valores: 18" + str(sheet_movimientos.cell(row=x, column=18).value) + "||")
+                # if str(sheet_movimientos.cell(row=x, column=18).value) != "0":
+                pass
+                contador_mov_creado = contador_mov_creado + 1
+                self.impresion_de_movimientos( contador_mov_creado, workbook_incidencias_creado_sheet,
                                                   clave_trabajador, "P", "111", sabados,
                                                   sheet_movimientos.cell(row=x, column=18).value)
 
                 #BONO KPI P135
-                print("Valores 19:" + str(sheet_movimientos.cell(row=x, column=19).value) + "||")
-                if str(sheet_movimientos.cell(row=x, column=19).value) != "0":
-                    pass
-                    contador_mov_creado = contador_mov_creado + 1
-                    self.impresion_de_movimientos( contador_mov_creado, workbook_incidencias_creado_sheet,
+                # print("Valores 19:" + str(sheet_movimientos.cell(row=x, column=19).value) + "||")
+                # if str(sheet_movimientos.cell(row=x, column=19).value) != "0":
+                pass
+                contador_mov_creado = contador_mov_creado + 1
+                self.impresion_de_movimientos( contador_mov_creado, workbook_incidencias_creado_sheet,
                                                   clave_trabajador, "P", "135", sabados,
                                                   sheet_movimientos.cell(row=x, column=19).value)
 
                 #BONO POR ESPECIALIDAD P 133
-                print("Valores 20:" + str(sheet_movimientos.cell(row=x, column=20).value) + "||")
-                if str(sheet_movimientos.cell(row=x, column=20).value) != "0":
-                    pass
-                    contador_mov_creado = contador_mov_creado + 1
-                    self.impresion_de_movimientos( contador_mov_creado, workbook_incidencias_creado_sheet,
+                # print("Valores 20:" + str(sheet_movimientos.cell(row=x, column=20).value) + "||")
+                # if str(sheet_movimientos.cell(row=x, column=20).value) != "0":
+                pass
+                contador_mov_creado = contador_mov_creado + 1
+                self.impresion_de_movimientos( contador_mov_creado, workbook_incidencias_creado_sheet,
                                                   clave_trabajador, "P", "133", sabados,
                                                   sheet_movimientos.cell(row=x, column=20).value)
                 #APOYO A ENCARGADO P134
-                print("Valores: 21" + str(sheet_movimientos.cell(row=x, column=21).value) + "||")
-                if str(sheet_movimientos.cell(row=x, column=21).value) != "0":
-                    pass
-                    contador_mov_creado = contador_mov_creado + 1
-                    self.impresion_de_movimientos( contador_mov_creado, workbook_incidencias_creado_sheet,
+                # print("Valores: 21" + str(sheet_movimientos.cell(row=x, column=21).value) + "||")
+                # if str(sheet_movimientos.cell(row=x, column=21).value) != "0":
+                pass
+                contador_mov_creado = contador_mov_creado + 1
+                self.impresion_de_movimientos( contador_mov_creado, workbook_incidencias_creado_sheet,
                                                   clave_trabajador, "P", "134", sabados,
                                                   sheet_movimientos.cell(row=x, column=21).value)
 
                 #OTROS BONOS P114
-                print("Valores 22:" + str(sheet_movimientos.cell(row=x, column=22).value) + "||")
-                if str(sheet_movimientos.cell(row=x, column=22).value) != "0":
-                    pass
-                    contador_mov_creado = contador_mov_creado + 1
-                    self.impresion_de_movimientos( contador_mov_creado, workbook_incidencias_creado_sheet,
+                # print("Valores 22:" + str(sheet_movimientos.cell(row=x, column=22).value) + "||")
+                # if str(sheet_movimientos.cell(row=x, column=22).value) != "0":
+                pass
+                contador_mov_creado = contador_mov_creado + 1
+                self.impresion_de_movimientos( contador_mov_creado, workbook_incidencias_creado_sheet,
                                                   clave_trabajador, "P", "114", sabados,
                                                   sheet_movimientos.cell(row=x, column=22).value)
 
                 #OTROS BONOS 2 P130
-                print("Valores 23:" + str(sheet_movimientos.cell(row=x, column=23).value) + "||")
-                if str(sheet_movimientos.cell(row=x, column=23).value) != "0":
-                    pass
-                    contador_mov_creado = contador_mov_creado + 1
-                    self.impresion_de_movimientos( contador_mov_creado, workbook_incidencias_creado_sheet,
+                # print("Valores 23:" + str(sheet_movimientos.cell(row=x, column=23).value) + "||")
+                # if str(sheet_movimientos.cell(row=x, column=23).value) != "0":
+                pass
+                contador_mov_creado = contador_mov_creado + 1
+                self.impresion_de_movimientos( contador_mov_creado, workbook_incidencias_creado_sheet,
                                                   clave_trabajador, "P", "130", sabados,
                                                   sheet_movimientos.cell(row=x, column=23).value)
 
                 #INCENTIVO DE PRODUCTIVIDAD P131
-                print("Valores 24:" + str(sheet_movimientos.cell(row=x, column=24).value) + "||")
-                if str(sheet_movimientos.cell(row=x, column=24).value) != "0":
-                    pass
-                    contador_mov_creado = contador_mov_creado + 1
-                    self.impresion_de_movimientos( contador_mov_creado, workbook_incidencias_creado_sheet,
+                # print("Valores 24:" + str(sheet_movimientos.cell(row=x, column=24).value) + "||")
+                # if str(sheet_movimientos.cell(row=x, column=24).value) != "0":
+                pass
+                contador_mov_creado = contador_mov_creado + 1
+                self.impresion_de_movimientos( contador_mov_creado, workbook_incidencias_creado_sheet,
                                                   clave_trabajador, "P", "131", sabados,
                                                   sheet_movimientos.cell(row=x, column=24).value)
 
                 #RETROACTIVO P127
-                print("Valores 25:" + str(sheet_movimientos.cell(row=x, column=25).value) + "||")
-                if str(sheet_movimientos.cell(row=x, column=25).value) != "0":
-                    pass
-                    contador_mov_creado = contador_mov_creado + 1
-                    self.impresion_de_movimientos( contador_mov_creado, workbook_incidencias_creado_sheet,
+                # print("Valores 25:" + str(sheet_movimientos.cell(row=x, column=25).value) + "||")
+                # if str(sheet_movimientos.cell(row=x, column=25).value) != "0":
+                pass
+                contador_mov_creado = contador_mov_creado + 1
+                self.impresion_de_movimientos( contador_mov_creado, workbook_incidencias_creado_sheet,
                                                   clave_trabajador, "P", "127", sabados,
                                                   sheet_movimientos.cell(row=x, column=25).value)
 
                 #PERDIDA DE HERRAMIENTA D113
-                print("Valores 26:" + str(sheet_movimientos.cell(row=x, column=26).value) + "||")
-                if str(sheet_movimientos.cell(row=x, column=26).value) != "0":
-                    pass
-                    contador_mov_creado = contador_mov_creado + 1
-                    self.impresion_de_movimientos( contador_mov_creado, workbook_incidencias_creado_sheet,
-                                                  clave_trabajador, "P", "113", sabados,
-                                                  sheet_movimientos.cell(row=x, column=26).value)
+                # print("Valores 26:" + str(sheet_movimientos.cell(row=x, column=26).value) + "||")
+                # if str(sheet_movimientos.cell(row=x, column=26).value) != "0":
+                pass
+                contador_mov_creado = contador_mov_creado + 1
+                self.impresion_de_movimientos( contador_mov_creado, workbook_incidencias_creado_sheet,
+                                             clave_trabajador, "P", "113", sabados,
+                                              sheet_movimientos.cell(row=x, column=26).value)
 
                 #REPOSICION GAFETE D114
-                print("Valores 27:" + str(sheet_movimientos.cell(row=x, column=27).value) + "||")
-                if str(sheet_movimientos.cell(row=x, column=27).value) != "0":
-                    pass
-                    contador_mov_creado = contador_mov_creado + 1
-                    self.impresion_de_movimientos( contador_mov_creado, workbook_incidencias_creado_sheet,
-                                                  clave_trabajador, "P", "114", sabados,
-                                                  sheet_movimientos.cell(row=x, column=27).value)
+                # print("Valores 27:" + str(sheet_movimientos.cell(row=x, column=27).value) + "||")
+                # if str(sheet_movimientos.cell(row=x, column=27).value) != "0":
+                pass
+                contador_mov_creado = contador_mov_creado + 1
+                self.impresion_de_movimientos( contador_mov_creado, workbook_incidencias_creado_sheet,
+                                              clave_trabajador, "P", "114", sabados,
+                                              sheet_movimientos.cell(row=x, column=27).value)
 
 
         ruta=os.getcwd()

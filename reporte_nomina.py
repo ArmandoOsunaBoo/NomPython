@@ -301,6 +301,7 @@ class ReporteNomina:
                 self.impresion_de_movimientos( contador_mov_creado, workbook_incidencias_creado_sheet,
                                                   clave_trabajador, "P", "114", sabados,
                                                   sheet_movimientos.cell(row=x, column=22).value)
+                print(str(clave_trabajador)+" - "+str(sheet_movimientos.cell(row=x, column=22).value))
 
                 #OTROS BONOS 2 P130
                 # print("Valores 23:" + str(sheet_movimientos.cell(row=x, column=23).value) + "||")
@@ -362,14 +363,14 @@ class ReporteNomina:
 
         #Valores clave
 
-        #este nadamas es para ver los valores del excel no hace nada realmente
+        #este nadamas es para ver los valores del excel, no hace nada realmente
         for columna in range (1,136):
             pass
             if columna==1:
                 clave_trabajador =  sheet.cell(row=fila, column=columna).value
 
             valor = sheet.cell(row=fila, column=columna).value
-            #print(str(columna)+" "+str(valor))
+            #print("clave: "+clave_trabajador+" "+str(columna)+" "+str(valor))
 
     def impresion_de_movimientos(self,fila,sheet,clave_emp,per_ded,codigo,fecha,monto):
         pass

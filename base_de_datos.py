@@ -185,9 +185,9 @@ class DataBase:
         cont2=0
         conta=0
         pyexcel.save_book_as(file_name=filename,
-                             dest_file_name='C:/tempx/reciclados/datas2.xlsx')
+                             dest_file_name='C:/tempx/datas2.xlsx')
 
-        workbook = openpyxl.load_workbook(filename="C:/tempx/reciclados/datas2.xlsx")
+        workbook = openpyxl.load_workbook(filename="C:/tempx/datas2.xlsx")
         sheet = workbook.active
 
         row_count = sheet.max_row
@@ -202,34 +202,46 @@ class DataBase:
 
                 numeromepleado = row[0].value
                 nombre = row[1].value
-                curp = row[2].value
-                rfc = row[3].value
-                edad= row[4].value
+                alta = row[2].value
+                nacionalidad = row[3].value
+                edad = row[4].value
                 sexo= row[5].value
-                localidad = row[6].value
-                colonia = row[7].value
-                calle = row[8].value
-                estado_civil = row[9].value
+                estado_civil= row[6].value
+                curp = row[7].value
+                rfc = row[8].value
+                municipio = row[9].value
+                localidad = row[10].value
+                fraccionamiento = row[11].value
+                colonia = row[12].value
+                calle = row[13].value
+                numero_casa = row[14].value
+
 
                 numeromepleado= str(numeromepleado)
                 nombre = str(nombre)
-                curp = str(curp)
-                rfc = str(rfc)
+                alta= str(alta)
+                nacionalidad = str(nacionalidad)
                 edad = str(edad)
                 sexo = str(sexo)
+                estado_civil = str(estado_civil)
+                curp = str(curp)
+                rfc = str(rfc)
+                municipio = str(municipio)
                 localidad = str(localidad)
+                fraccionamiento = str(fraccionamiento)
                 colonia = str(colonia)
                 calle = str(calle)
-                estado_civil = str(estado_civil)
+                numero_casa = str(numero_casa)
 
-                val = self.sql_validar_empleado(numeromepleado)
-                print("val: "+str(val))
-                if val == 0:
+                #val = self.sql_validar_empleado(numeromepleado)
+                #print("val: "+str(val))
+                if 1 == 1:
                     pass
-                    #self.sql_guardar_empleado(numeromepleado,nombre,curp,rfc,edad,sexo,localidad,colonia,calle,estado_civil)
+
+                    self.sql_guardar_empleado(numeromepleado,nombre,alta,nacionalidad,edad,sexo,estado_civil,curp,rfc,municipio,localidad,fraccionamiento,colonia,calle,numero_casa)
                 else:
                     print("jsjsj")
-                    self.sql_actualizar_empleado(numeromepleado,nombre,curp,rfc,edad,sexo,localidad,colonia,calle,estado_civil)
+                    #self.sql_actualizar_empleado(numeromepleado,nombre,nacionalidad,edad,sexo,estado_civil,curp,rfc,municipio,localidad,fraccionamiento,colonia,calle,numero_casa)
         pb.cerrar_ventana()
 
     def sql_validar_empleado(self,numeroempleado):
@@ -261,11 +273,25 @@ class DataBase:
             print('Ya hay un dato repetido')
             return 1
 
-    def sql_guardar_empleado(self,numeromepleado,nombre,curp,rfc,edad,sexo,localidad,colonia,calle,estado_civil):
+    def sql_guardar_empleado(self,numeroempleado,nombre,alta,nacionalidad,edad,sexo,estado_civil,curp,rfc,municipio,localidad,fraccionamiento,colonia,calle,numero_casa):
         pass
+        alta = alta[8:10] + "/" + alta[5:7] + "/" + alta[0:4]
+        if len(numeroempleado) == 1:
+            pass
+            numeroempleado = "0000" + numeroempleado
+        elif len(numeroempleado) == 2:
+            pass
+            numeroempleado = "000" + numeroempleado
+        elif len(numeroempleado) == 3:
+            pass
+            numeroempleado = "00" + numeroempleado
+        elif len(numeroempleado) == 4:
+            pass
+            numeroempleado = "0" + numeroempleado
         try:
             connection = self.sql_connect()
-            mySql_insert_query = "INSERT INTO empleados (numeroempleado, nombre, CURP,RFC,edad,sexo,localidad,colonia,calle,estado_civil) "+"VALUES ('" +numeromepleado+ "','" + nombre + "','" + curp + "', '" + rfc + "','"+edad+ "','" + sexo+ "','" + localidad+ "','" + colonia+ "','" + calle+ "','" + estado_civil+"' ) "
+            print(numeroempleado)
+            mySql_insert_query = "INSERT INTO empleados2 (numeroempleado,nombre,alta,nacionalidad,edad,sexo,estado_civil,curp,rfc,municipio,localidad,fraccionamiento,colonia,calle,numero_casa) "+"VALUES ('" +numeroempleado+ "','" + nombre + "','"+  alta+"','"  + nacionalidad + "', '" + edad + "','"+sexo+ "','" + estado_civil+ "','" + curp+ "','" + rfc+ "','" + municipio+ "','" + localidad+"'"+ ",'" + fraccionamiento+"'"+ ",'" + colonia+""+ "','" + calle+""+ "','" + numero_casa+"' ) "
 
             cursor = connection.cursor()
             cursor.execute(mySql_insert_query)
@@ -273,13 +299,13 @@ class DataBase:
             cursor.close()
 
         except mysql.connector.Error as error:
-            messagebox.showwarning("Alerta", "Error al guardar los datos EAA \n" + str(error))
+            messagebox.showwarning("Alerta", "---Error al guardar los datos EMPLEADOS 2:---  \n" + str(error))
         finally:
             if connection.is_connected():
                 connection.close()
                 print("MySQL connection is closed")
 
-    def sql_actualizar_empleado(self,numeroempleado,nombre,curp,rfc,edad,sexo,localidad,colonia,calle,estado_civil):
+    def sql_actualizar_empleado(self,numeroempleado,nombre,nacionalidad,edad,sexo,estado_civil,curp,rfc,municipio,localidad,fraccionamiento,colonia,calle,numero_casa):
         pass
         try:
             connection = self.sql_connect()
@@ -297,16 +323,21 @@ class DataBase:
                 pass
                 numeroempleado = "0" + numeroempleado
             # Update single record now
-            sql_update_query = f"""UPDATE empleados set 
-            nombre='{nombre}', 
-            CURP='{curp}',
-            RFC='{rfc}',
+            sql_update_query = f"""UPDATE empleados2 set 
+            nombre='{nombre}',
+            nacionalidad='{nacionalidad}', 
             edad='{edad}',
             sexo='{sexo}',
+            estado_civil ='{estado_civil}',
+            CURP='{curp}',
+            RFC='{rfc}',
+            municipio ='{municipio}',
             localidad='{localidad}',
+            fraccionamiento='{fraccionamiento}',
             colonia='{colonia}',
             calle='{calle}',
-            estado_civil ='{estado_civil}'
+            numero_casa='{numero_casa}'
+           
             where numero empleado = '{numeroempleado}' """
 
             print(sql_update_query)

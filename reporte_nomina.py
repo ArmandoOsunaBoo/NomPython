@@ -347,6 +347,14 @@ class ReporteNomina:
                 self.impresion_de_movimientos( contador_mov_creado, workbook_incidencias_creado_sheet,
                                               clave_trabajador, "P", "114", sabados,
                                               sheet_movimientos.cell(row=x, column=27).value)
+                # AGUINALDO P0004
+                # print("Valores 27:" + str(sheet_movimientos.cell(row=x, column=27).value) + "||")
+                # if str(sheet_movimientos.cell(row=x, column=27).value) != "0":
+                pass
+                contador_mov_creado = contador_mov_creado + 1
+                self.impresion_de_movimientos(contador_mov_creado, workbook_incidencias_creado_sheet,
+                                              clave_trabajador, "P", "4", sabados,
+                                              sheet_movimientos.cell(row=x, column=28).value)
 
 
         ruta=os.getcwd()

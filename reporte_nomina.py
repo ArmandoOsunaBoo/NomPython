@@ -336,7 +336,7 @@ class ReporteNomina:
                 pass
                 contador_mov_creado = contador_mov_creado + 1
                 self.impresion_de_movimientos( contador_mov_creado, workbook_incidencias_creado_sheet,
-                                             clave_trabajador, "P", "113", sabados,
+                                             clave_trabajador, "D", "113", sabados,
                                               sheet_movimientos.cell(row=x, column=26).value)
 
                 #REPOSICION GAFETE D114

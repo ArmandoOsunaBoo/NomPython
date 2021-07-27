@@ -202,24 +202,25 @@ class DataBase:
 
                 numeromepleado = row[0].value
                 nombre = row[1].value
-                alta = row[2].value
-                nacionalidad = row[3].value
-                edad = row[4].value
-                sexo= row[5].value
-                estado_civil= row[6].value
-                curp = row[7].value
-                rfc = row[8].value
-                municipio = row[9].value
-                localidad = row[10].value
-                fraccionamiento = row[11].value
-                colonia = row[12].value
-                calle = row[13].value
-                numero_casa = row[14].value
+
+                nacionalidad = row[2].value
+                edad = row[3].value
+                sexo= row[4].value
+                estado_civil= row[5].value
+                curp = row[6].value
+                rfc = row[7].value
+                municipio = row[8].value
+                localidad = row[9].value
+                fraccionamiento = row[10].value
+                colonia = row[11].value
+                calle = row[12].value
+                numero_casa = row[13].value
+                alta = row[14].value
 
 
                 numeromepleado= str(numeromepleado)
                 nombre = str(nombre)
-                alta= str(alta)
+
                 nacionalidad = str(nacionalidad)
                 edad = str(edad)
                 sexo = str(sexo)
@@ -232,6 +233,7 @@ class DataBase:
                 colonia = str(colonia)
                 calle = str(calle)
                 numero_casa = str(numero_casa)
+                alta = str(alta)
 
                 #val = self.sql_validar_empleado(numeromepleado)
                 #print("val: "+str(val))

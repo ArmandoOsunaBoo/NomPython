@@ -225,7 +225,6 @@ class Principal:
 
     def wind_upAsistence(self):
         pass
-
         filename = askopenfilename()
         print(filename)
 

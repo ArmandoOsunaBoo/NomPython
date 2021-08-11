@@ -38,11 +38,11 @@ class ReporteNomina:
         workbook_incidencias_creado_sheet = workbook_incidencias_creado.active
         mrow= sheet_faltas.max_row
 
-        for x in range(2,mrow):
+        for x in range(2,mrow-1):
             pass
             if(sheet_faltas.cell(row=x, column=1).value!=0):
                 clave_trabajador = sheet_faltas.cell(row=x, column=1).value
-                #print(sheet_faltas.cell(row=x, column=4).value)
+                print(sheet_faltas.cell(row=x, column=4).value)
                 porcentaje_l= int(round(float(sheet_faltas.cell(row=x, column=5).value)*100))
                 porcentaje_ma=int(round(float(sheet_faltas.cell(row=x, column=6).value)*100))
                 porcentaje_mi=int(round(float(sheet_faltas.cell(row=x, column=7).value)*100))
@@ -345,7 +345,7 @@ class ReporteNomina:
                 pass
                 contador_mov_creado = contador_mov_creado + 1
                 self.impresion_de_movimientos( contador_mov_creado, workbook_incidencias_creado_sheet,
-                                              clave_trabajador, "P", "114", sabados,
+                                              clave_trabajador, "D", "114", sabados,
                                               sheet_movimientos.cell(row=x, column=27).value)
                 # AGUINALDO P0004
                 # print("Valores 27:" + str(sheet_movimientos.cell(row=x, column=27).value) + "||")
@@ -361,6 +361,12 @@ class ReporteNomina:
                 self.impresion_de_movimientos(contador_mov_creado, workbook_incidencias_creado_sheet,
                                               clave_trabajador, "P", "14", sabados,
                                               sheet_movimientos.cell(row=x, column=29).value)
+                # BONO DE DESEMPENIO P136
+                pass
+                contador_mov_creado = contador_mov_creado + 1
+                self.impresion_de_movimientos(contador_mov_creado, workbook_incidencias_creado_sheet,
+                                              clave_trabajador, "P", "136", sabados,
+                                              sheet_movimientos.cell(row=x, column=30).value)
 
 
         ruta=os.getcwd()

@@ -367,6 +367,12 @@ class ReporteNomina:
                 self.impresion_de_movimientos(contador_mov_creado, workbook_incidencias_creado_sheet,
                                               clave_trabajador, "P", "136", sabados,
                                               sheet_movimientos.cell(row=x, column=30).value)
+                # BONO DE DESEMPENIO P137
+                pass
+                contador_mov_creado = contador_mov_creado + 1
+                self.impresion_de_movimientos(contador_mov_creado, workbook_incidencias_creado_sheet,
+                                              clave_trabajador, "P", "137", sabados,
+                                              sheet_movimientos.cell(row=x, column=31).value)
 
 
         ruta=os.getcwd()

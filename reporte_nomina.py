@@ -14,9 +14,7 @@ class ReporteNomina:
 
         sheet_faltas = workbook_faltas
         sheet_movimientos = workbook_movimientos
-
         clave_trabajador = 0
-
 
         #tenemos que leer datos del empleado del archivo
         lunes= self.formato_fecha(sheet.cell(row=5, column=130).value)
@@ -330,14 +328,15 @@ class ReporteNomina:
                                                   clave_trabajador, "P", "127", sabados,
                                                   sheet_movimientos.cell(row=x, column=25).value)
 
-                #PERDIDA DE HERRAMIENTA D113
-                # print("Valores 26:" + str(sheet_movimientos.cell(row=x, column=26).value) + "||")
-                # if str(sheet_movimientos.cell(row=x, column=26).value) != "0":
+                # RETROACTIVO P127
+                # print("Valores 25:" + str(sheet_movimientos.cell(row=x, column=25).value) + "||")
+                # if str(sheet_movimientos.cell(row=x, column=25).value) != "0":
                 pass
                 contador_mov_creado = contador_mov_creado + 1
-                self.impresion_de_movimientos( contador_mov_creado, workbook_incidencias_creado_sheet,
-                                             clave_trabajador, "D", "113", sabados,
+                self.impresion_de_movimientos(contador_mov_creado, workbook_incidencias_creado_sheet,
+                                              clave_trabajador, "P", "138", sabados,
                                               sheet_movimientos.cell(row=x, column=26).value)
+
 
                 #REPOSICION GAFETE D114
                 # print("Valores 27:" + str(sheet_movimientos.cell(row=x, column=27).value) + "||")
@@ -373,6 +372,24 @@ class ReporteNomina:
                 self.impresion_de_movimientos(contador_mov_creado, workbook_incidencias_creado_sheet,
                                               clave_trabajador, "P", "137", sabados,
                                               sheet_movimientos.cell(row=x, column=31).value)
+
+                # RETROACTIVO P127
+                # print("Valores 25:" + str(sheet_movimientos.cell(row=x, column=25).value) + "||")
+                # if str(sheet_movimientos.cell(row=x, column=25).value) != "0":
+                pass
+                contador_mov_creado = contador_mov_creado + 1
+                self.impresion_de_movimientos(contador_mov_creado, workbook_incidencias_creado_sheet,
+                                              clave_trabajador, "P", "138", sabados,
+                                              sheet_movimientos.cell(row=x, column=32).value)
+
+                # PERDIDA DE HERRAMIENTA D113
+                # print("Valores 26:" + str(sheet_movimientos.cell(row=x, column=26).value) + "||")
+                # if str(sheet_movimientos.cell(row=x, column=26).value) != "0":
+                pass
+                contador_mov_creado = contador_mov_creado + 1
+                self.impresion_de_movimientos(contador_mov_creado, workbook_incidencias_creado_sheet,
+                                              clave_trabajador, "D", "118", sabados,
+                                              sheet_movimientos.cell(row=x, column=33).value)
 
 
         ruta=os.getcwd()
